@@ -1,12 +1,33 @@
-<h1>Documentation</h1>
-<a href="/">Home</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prsntAI: Docs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="nav">
+        <a href="/" class="nav-element">Home</a>
+        <a href="/ai" class="nav-element">AI Tool</a>
+        <a href="/docs" class="nav-element">Documentation</a>
+        <a href="https://github.com/orgs/prsntai/repositories" target="_blank" rel="noopener" class="nav-right">GitHub</a>
+    </div>
+    <h1>Documentation</h1>
 
-<h2>What is prsntAI?</h2>
-<p>A web application that uses AI to generate presentations slides live using the presenter's speech.</p>
+    <h2>What is prsntAI?</h2>
+    <p>A web application that uses AI to generate presentations slides live using the presenter's speech.</p>
 
-<h2>How does it work?</h2>
-<p>The web application transcribes a presentation speech to text. It then takes this text and passes it through a fine tuned GPT-3.5 prompt create content for a slideshow which then gets displayed. It is capable of displaying a title, text, bullet points, and images on each slide.</p>
-<p>More information can be found on the <a href="https://github.com/orgs/prsntai/repositories" target="_blank" rel="noopener">GitHub Repository</a>.</p>
+    <h2>How does it work?</h2>
+    <p>The web application transcribes a presentation speech to text. It then takes this text and passes it through a fine tuned GPT-3.5 prompt create content for a slideshow which then gets displayed. It is capable of displaying a title, text, bullet points, and images on each slide.</p>
+    <p>More information can be found on the <a href="https://github.com/orgs/prsntai/repositories" target="_blank" rel="noopener">GitHub Repository</a>.</p>
 
-<h2>How do I use it?</h2>
-<p>Go to <a href="/ai">AI Tool</a> and enable your microphone. A slideshow will automatically appear as you speak.</p>
+    <h2>How do I use it?</h2>
+    <ol type="1">
+        <li>Go to <a href="/ai">AI Tool</a></li>
+        <li>Provide a short summary of your presentation.</li>
+        <li>Enable your microphone and speak.</li>
+    </ol>
+    <p>A slideshow will automatically begin to appear as you speak. Click <b>New</b> when you want a new slide and press <b>End</b> to end the presentation</p>
+    </body>
+</html>

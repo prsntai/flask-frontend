@@ -1,2 +1,47 @@
-<h1>AI Tool</h1>
-<a href="/">Home</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prsntAI: Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ai.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+</head>
+<body>
+    <div class="nav">
+        <a href="/" class="nav-element">Home</a>
+        <a href="/ai" class="nav-element">AI Tool</a>
+        <a href="/docs" class="nav-element">Documentation</a>
+        <a href="https://github.com/orgs/prsntai/repositories" target="_blank" rel="noopener" class="nav-right">GitHub</a>
+    </div>
+    <h1>AI Tool</h1>
+    <p>Transcription:</p>
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+    <div id="transcription"></div>
+
+    <script>
+        const transcriptionDiv = document.getElementById('transcription');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+        const socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('connect', function() {
+            console.log('Connected to the server');
+        });
+
+        socket.on('transcription', function(data) {
+            transcriptionDiv.innerHTML = data;
+        });
+
+        startButton.addEventListener('click', function() {
+            socket.emit('start_transcription');
+        });
+
+        stopButton.addEventListener('click', function() {
+            socket.emit('stop_transcription');
+        });
+    </script>
+</body>
+</html>
