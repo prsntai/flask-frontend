@@ -62,4 +62,4 @@ def handle_stop_transcription():
             transcription_thread.join()
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app)
